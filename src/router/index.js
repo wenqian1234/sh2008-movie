@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-10-09 11:35:27
+ * @LastEditTime: 2020-10-12 01:52:12
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project\sh2008-movie\src\router\index.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import center from './routes/center'
@@ -8,6 +16,8 @@ Vue.use(VueRouter)
 import centerRouter from './routes/center'
 import cinemaRouter from './routes/cinema'
 import filmRouter from './routes/film'
+import detailRouter from './routes/detail'
+
 
 const routes = [
   {
@@ -18,6 +28,7 @@ const routes = [
   centerRouter,
   cinemaRouter,
   filmRouter,
+  detailRouter,
 ]
 
 const router = new VueRouter({
