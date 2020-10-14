@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-09 11:35:27
- * @LastEditTime: 2020-10-12 01:52:12
+ * @LastEditTime: 2020-10-14 10:40:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\router\index.js
@@ -17,6 +17,7 @@ import centerRouter from './routes/center'
 import cinemaRouter from './routes/cinema'
 import filmRouter from './routes/film'
 import detailRouter from './routes/detail'
+import cityRouter from './routes/city'
 
 
 const routes = [
@@ -29,6 +30,7 @@ const routes = [
   cinemaRouter,
   filmRouter,
   detailRouter,
+  cityRouter,
 ]
 
 const router = new VueRouter({

@@ -1,7 +1,15 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-09 11:35:27
+ * @LastEditTime: 2020-10-13 15:18:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project\sh2008-movie\src\App.vue
+-->
 <template>
   <div id="app">
     <!-- 底部导航 -->
-    <FooterNav></FooterNav>
+    <FooterNav v-if="is_show"></FooterNav>
     <router-view/>
   </div>
 </template>
@@ -10,9 +18,20 @@
 // 导入需要使用组件
 import FooterNav from'@/components/FooterNav'
 export default {
+  data() {
+    return {
+      is_show:true
+    }
+  },
   // 注册
   components:{
     FooterNav,
+  },
+  created() {
+    this.eventBus.$on('footernav',(mark)=>{
+      this.is_show = mark
+
+    })
   },
 };
 </script>

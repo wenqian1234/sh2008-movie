@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-10-09 11:35:27
+ * @LastEditTime: 2020-10-13 15:01:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project\sh2008-movie\src\main.js
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -24,6 +32,16 @@ Vue.config.productionTip = false
 // });
 
 // axios.get("gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=8591124");
+
+// 使用懒加载
+import VuelazyLoad from 'vue-lazyload'
+Vue.use(VuelazyLoad,{
+  loading:
+    "https://2url.cc/1OwrB",
+});
+
+// 定义事件总线
+Vue.prototype.eventBus = new Vue();
 
 new Vue({
   router,

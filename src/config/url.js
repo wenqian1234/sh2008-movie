@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-10 11:48:04
- * @LastEditTime: 2020-10-12 02:11:31
+ * @LastEditTime: 2020-10-14 11:27:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\config\url.js
@@ -15,4 +15,10 @@ export const comingSoonListUri =
 
 // 电影详情数据
 export const movieDetailUrl = 
-    "gateway?&k=6606805&filmId="
+    "gateway?&k=6606805&filmId=";
+
+// 城市列表数据
+export const cityListUrl = "gateway?k=9028099";
+
+
+

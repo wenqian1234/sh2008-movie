@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-10 12:15:25
- * @LastEditTime: 2020-10-12 12:24:31
+ * @LastEditTime: 2020-10-14 11:27:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\api\http.js
@@ -23,6 +23,9 @@ axios.interceptors.request.use(
         }
         if (info =="info"){
             host = "mall.film-ticket.film.info";
+        }
+        if(info =='city'){
+            host = "mall.film-ticket.city.list";
         }
         // ....后续有其他的都数据请求需求，接着写
         config.headers = {
