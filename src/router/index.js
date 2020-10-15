@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-09 11:35:27
- * @LastEditTime: 2020-10-14 10:40:50
+ * @LastEditTime: 2020-10-14 18:29:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\router\index.js
@@ -18,12 +18,13 @@ import cinemaRouter from './routes/cinema'
 import filmRouter from './routes/film'
 import detailRouter from './routes/detail'
 import cityRouter from './routes/city'
+import vuexRouter from './routes/vuex'
 
 
 const routes = [
   {
     path: '/',
-    redirect:'/film'
+    redirect:'/film',
   },
   // 注册路由模块
   centerRouter,
@@ -31,6 +32,7 @@ const routes = [
   filmRouter,
   detailRouter,
   cityRouter,
+  vuexRouter,
 ]
 
 const router = new VueRouter({

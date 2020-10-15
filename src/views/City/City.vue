@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-14 10:42:39
- * @LastEditTime: 2020-10-14 15:01:15
+ * @LastEditTime: 2020-10-15 14:53:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\views\City\City.vue
@@ -41,13 +41,17 @@ export default {
         this.eventBus.$emit('footernav',true)
     },
     async mounted() {
+         console.log(this.$store.state.count);
+         console.log(this.$store.state.city);
        let ret = await cityListData()  //dataList,indexList
        this.dataList = ret[0]
        this.indexList =ret[1]
     },
     methods:{
         chooseCity:function(cityName){   //选择城市
-            console.log(cityName);
+            // 将数据写到vuex中
+            this.$store.commit('setCity',cityName)
+            this.$router.go(-1)
         }
     }
 }

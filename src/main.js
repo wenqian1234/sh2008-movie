@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-09 11:35:27
- * @LastEditTime: 2020-10-13 15:01:35
+ * @LastEditTime: 2020-10-14 17:31:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \project\sh2008-movie\src\main.js
@@ -43,7 +43,11 @@ Vue.use(VuelazyLoad,{
 // 定义事件总线
 Vue.prototype.eventBus = new Vue();
 
+// 导入store的store对象
+import store from '@/store/vuex'
+
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
