@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-10-10 17:40:35
- * @LastEditTime: 2020-10-14 12:15:48
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\api\api.js
- */
 
 // 发送具体的请求
 
@@ -17,10 +9,13 @@ import{
     nowPlayingListUri,
     comingSoonListUri,
     cityListUrl,
+    loginUrl,
+    centerUrl,
 }from '@/config/url';
 import { movieDetailUrl } from '../config/url';
 //  请求正在热映列表数据，按需导出
 export const nowPlayingListData = (pageNum ) =>{
+  http.defaults.headers.authorization="";
   http.defaults.headers.info = "film";
   return  http.get(nowPlayingListUri +pageNum);
 };
@@ -35,12 +30,16 @@ export const comingSoonListData = (pageNum ) =>{
 export const movieDetailData = (filmId) =>{
   // 给axios设置请求头
   http.defaults.headers.info = "info";
+  http.defaults.headers.authorization="";
   return  http.get(movieDetailUrl +filmId);
 };
 // 获取城市列表的数据
 export const cityListData = async () =>{
   // 给axios设置请求头
+  http.defaults.headers.authorization="";
   http.defaults.headers.info = "city";
+
+
   let ret = await http.get(cityListUrl)
   // 定义基本的数据
   let cities = ret.data.data.cities;
@@ -65,8 +64,24 @@ export const cityListData = async () =>{
       });
     }
   })
-  
   // 返回数据
   return Promise.resolve([dataList,indexList]);
- 
+};
+// 登录
+export const userLogin = (data)=>{
+  return http.post(loginUrl,data);
+};
+
+// 获取用户个人信息
+export const userInfo = (_token) =>{
+  http.defaults.headers.authorization=_token;
+  // http.interceptors.response.use(function(response){
+  //   response.data.user_info.gender = response.data.user_info.gender 
+  //      ?'女'
+  //      :'男'
+  //   return response
+  // },function(error){
+  //     //错误的处理 
+  // });
+  return http.get(centerUrl);
 }

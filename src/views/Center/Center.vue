@@ -3,15 +3,21 @@
          <div class="main">
             <div class="center-view">
                 <div class="avatar">
-                    <img
+                    <img v-if="!userInfo.userId"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAACGCAMAAAAvpwKjAAAAQlBMVEXt7e3v7+/r6+v7+/v9/f309PT8/Pzq6ur////+/v729vbu7u7x8fH5+fnz8/P6+vr4+Pjs7Ozy8vL19fXw8PD39/c1tMDaAAAD/0lEQVR42u2a6ZKkKhCFARFZFBf0/V91eubebhGxSjKTmIoJz88uw/4kMw9LwtijR48ePXr06NGjR48ePfpH5XrfBrttNrTLevnUGkZljBpaXgGht6PUscxoF5d5rtkfGVZaBj8YnZNRNvnk6fi7pWNYpzzD96As+6O8SX8eqIIx6neS39/M1flHEo71PcQfEH9FoTU+Lm4z+qaa9YJCG2yeLlLfl5nUxS/IsGyaSBj/OCc9WC0iNzMBUVvbOzaL+ctO203dxoBHpT9RDAvrjmLLcA9DgSmSCjHt3OU0t3dKyUAjcny58aK7kvCmFgY/RsTO3SvNtlJQDsknefdO/I2/jCCKwyTZsO692OviDhCKNn7DJLo7EtMrDIib8zjl2u6u2hfTDWQwRhDFK44ess6KI9KV6CouE2QwoqRvRBGGaOhCEqJKzdQI/1oXGyNHm6tilqtbxZGDwc+GGRmKytg7p6KI8sym/ySd7cxy4rA0FJF/mvm9M5xMZTYkFP3+Bp/8g+zqQqWB8RQUkY0bcacKTsUkDAEFM1fG9bO+GXonBOt/NnHjtYlJKMWyv+M42uFnqvwpziGfyTN2Xv3SnujD8eX/10jIfLfsLsYNvOaKpuslhxFy468SjAU3sf7eo+2pkRjon6BsWZdIZz+G3hfs5Zp+YhekDGf39k3jT39U2H3BnuVbB9cWTUrIzWKLwIhKFoaxJ3mPwOixOboXikNguB1jQc5rDIERlYpnuLWGQGAIbMWafwljxmLIz8iND6mU8TN8Y6B2UY5cAtLMKdqBMML1DFsghZ3aoqgyikKBHgCaq9VXgRbk6cqhYgcwxoA7UEhOp2e8hxoHxPAaXbIt8kQhWRMb2LQS79qgqXE4A/QgjGg8DbxvEKW5gWRHvKMHb9qOpywWgBGfb3gERvweXkzBCY7r0yTNnn29NlBJ1uizmuYkUDoUhpM056KB4RQ0xSmxYlgpTXBm7tEYx/4WrINA0RC3GttPQeZnpocA6S6ZnoIibbUV99qo7mwsafuzqPM4MiqdXl3Qh6WjyHDc7kpTUjCW7Tb/16MXQlz36BtGK3/7AslhLBwxRuaywHttjF5uLIQwnlWRLQqMWlklrfdvtJjAKsrfzJDJsbqa7lz76itDMH5rOEJtCvVXi+S7aO9eZzI1w+IKKmWth1FyA03yWhRlNtpUqtmhdF77CArghREC26o/w8JuaVLbmAVRUNtYgF4NJbWxFn5FVdLZGGwd+r36obKPBUNBtjhHUhDZWI+lILGxFU9BsJlepaZQi6PgNBTaLCgKpYmEsTFHRoFZBTm66/4YGyOlANvYqIkFsrFBk2v6CAqAjU26igptbKtDUWhjVtfS1WbuF/MY5z0qnakpAAAAAElFTkSuQmCC"
                         class="avator-icon"
                     />
-                    <div class="nick-name" @click="login()">立即登录</div>
+                    <img v-if="userInfo.userId"
+                        :src="userInfo.headIcon"
+                        class="avator-icon"
+                    />
+                    <div v-if="userInfo.userId" class="nick-name" @click="login()">{{userInfo.mobile}}</div>
+                           <!-- 加叹号是没登录的 -->
+                    <div v-if="!userInfo.userId" class="nick-name" @click="login()">立即登录</div>
                 </div>
                 <ul class="my-order-tab">
                     <li>
-                        <img
+                        <img v-if="userInfo.userId"
                             src="data:image/png;base64,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"
                             width="26px"
                             height="26px"
@@ -116,7 +122,20 @@
 </template>
 
 <script>
+import { userInfo } from '@/api/api'
 export default {
+    data() {
+        return {
+            userInfo:{}
+        }
+    },
+    async mounted() {
+        let _token = this.$store.state._token;
+        if(_token){
+            let ret =await userInfo(_token);
+                this.userInfo = ret.data.user_info
+        }
+    },
     methods: {
         login: function(){
             this.$router.push({path: '/login'})
@@ -124,7 +143,6 @@ export default {
     },
 }
 </script>
-
 <style lang="css" scoped>
 .center-view {
     position: relative;

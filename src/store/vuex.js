@@ -1,11 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2020-10-14 17:01:58
- * @LastEditTime: 2020-10-15 12:33:20
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\store\vuex.js
- */
+
 // 引入
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -15,6 +8,7 @@ export default new Vuex.Store({
     state:{
         count:0,
         city:'地球',
+        _token:'',
     },
     mutations:{
         add:function(state,step){
@@ -23,6 +17,10 @@ export default new Vuex.Store({
         setCity:function(state,cityName) {
             state.city =cityName
         },
+        updateToken:function(state,_token){
+            state._token = _token,
+            localStorage.setItem("_token",_token)
+        }
         
     },
     actions:{

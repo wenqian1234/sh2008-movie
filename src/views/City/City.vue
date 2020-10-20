@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-10-14 10:42:39
- * @LastEditTime: 2020-10-15 14:53:14
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\views\City\City.vue
--->
+
 <template>
     <div>
         <van-index-bar :index-list="indexList">

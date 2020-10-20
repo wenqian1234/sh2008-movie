@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-10-12 20:24:08
- * @LastEditTime: 2020-10-12 23:04:36
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\components\swiper.vue
--->
+
 <template>
     <div class="swiper-container">
         <div class="swiper-wrapper">

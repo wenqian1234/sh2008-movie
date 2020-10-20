@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-10-09 11:35:27
- * @LastEditTime: 2020-10-13 15:18:39
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\App.vue
--->
+
 <template>
   <div id="app">
     <!-- 底部导航 -->

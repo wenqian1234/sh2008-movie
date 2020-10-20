@@ -1,11 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2020-10-09 11:35:27
- * @LastEditTime: 2020-10-14 18:29:37
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \project\sh2008-movie\src\router\index.js
- */
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import center from './routes/center'
@@ -19,7 +12,7 @@ import filmRouter from './routes/film'
 import detailRouter from './routes/detail'
 import cityRouter from './routes/city'
 import vuexRouter from './routes/vuex'
-
+import authRouter from './routes/auth'
 
 const routes = [
   {
@@ -33,13 +26,32 @@ const routes = [
   detailRouter,
   cityRouter,
   vuexRouter,
-]
+  // 注册路由
+  ...authRouter,
+];
 
 const router = new VueRouter({
   mode: 'history',
   // 前缀
   // base: process.env.BASE_URL,
   routes
-})
+});
 
+// 路由守卫
+router.beforeEach( (to,from,next)=>{
+  let arr =[
+    // 存需要登录的地址,继续往里加就行
+    "/cinema",
+  ];
+  if(arr.includes(to.path)){
+    // 返回真则在（需要登录）
+    if(localStorage.getItem("_token")){
+      next()
+    }else{
+      next({path:'/login',query:{'refer':to.fullPath}})
+    }
+  }else{
+    next()
+  }
+})
 export default router
