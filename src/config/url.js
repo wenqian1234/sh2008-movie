@@ -13,6 +13,8 @@ export const movieDetailUrl =
 // 城市列表数据
 export const cityListUrl = "gateway?k=9028099";
 
+// 影院列表数据
+export const cinemaListUrl = "gateway?cityId=110100&ticketFlag=1&k=6099533"
 // 个人中心相关接口（确认地址一定要正确）
 export const loginUrl = "http://127.0.0.1:3000/api/v1/login";
 export const centerUrl = "http://127.0.0.1:3000/api/v1/user_info";

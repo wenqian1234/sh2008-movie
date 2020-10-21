@@ -35,7 +35,7 @@ Vue.config.productionTip = false
 import VuelazyLoad from 'vue-lazyload'
 Vue.use(VuelazyLoad,{
   loading:
-    "https://2url.cc/1OwrB",
+    "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1603181227&di=3f37e99c8d02a8094e012133383af8c1&src=http://a2.att.hudong.com/36/48/19300001357258133412489354717.jpg",
 });
 
 // 定义事件总线

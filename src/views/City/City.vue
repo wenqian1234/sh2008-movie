@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <van-index-bar :index-list="indexList">
+        <van-index-bar type="flex" justify="end" :index-list="indexList"> 
             <template v-for="(item,index) in dataList">
                 <van-index-anchor :index="item.index" :key="index"/>
                     <!-- //粘贴官网后需要引入cell -->
@@ -15,6 +15,7 @@
 import {cityListData} from '@/api/api'
 import Vue from 'vue';
 import { IndexBar, IndexAnchor,Cell } from 'vant';  //引入cell
+import 'vant/lib/index.css';
 Vue.use(IndexBar);
 Vue.use(IndexAnchor);
 Vue.use(Cell);  
@@ -49,3 +50,8 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+//    .letter{
+
+//    } 
+</style>

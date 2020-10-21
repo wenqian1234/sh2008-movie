@@ -9,6 +9,7 @@ import{
     nowPlayingListUri,
     comingSoonListUri,
     cityListUrl,
+    cinemaListUrl,
     loginUrl,
     centerUrl,
 }from '@/config/url';
@@ -33,6 +34,12 @@ export const movieDetailData = (filmId) =>{
   http.defaults.headers.authorization="";
   return  http.get(movieDetailUrl +filmId);
 };
+// 请求影院列表数据
+ export const cinemaListData = ()=>{
+  http.defaults.headers.info = "cinema";
+  return http.get(cinemaListUrl);
+};
+
 // 获取城市列表的数据
 export const cityListData = async () =>{
   // 给axios设置请求头
@@ -77,7 +84,7 @@ export const userInfo = (_token) =>{
   http.defaults.headers.authorization=_token;
   // http.interceptors.response.use(function(response){
   //   response.data.user_info.gender = response.data.user_info.gender 
-  //      ?'女'
+      //  ?'女'
   //      :'男'
   //   return response
   // },function(error){
