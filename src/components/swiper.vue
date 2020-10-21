@@ -1,8 +1,11 @@
 
 <template>
-    <div class="swiper-container">
+        <!--两个class 是固定写法  -->
+    <div class="swiper-container">   
         <div class="swiper-wrapper">
+            <!-- 插槽（坑） -->
            <slot></slot>
+           <!-- <slot></slot> -->
         </div> 
     </div>
 </template>
@@ -14,7 +17,7 @@ export default {
     mounted() {
         this.$nextTick( ()=>{
             new Swiper(".swiper-container",{
-                slidesPerView: 4,
+                slidesPerView: 4, //默认显示4个
                 //  breakpoints: {
                 //     640: {
                 //         slidesPerView: 2,
